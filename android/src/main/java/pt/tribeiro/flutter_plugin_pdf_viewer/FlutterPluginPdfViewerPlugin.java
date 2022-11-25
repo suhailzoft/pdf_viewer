@@ -92,7 +92,6 @@ public class FlutterPluginPdfViewerPlugin implements FlutterPlugin, MethodCallHa
                                         result.success(pageResult);
                                     }
                                 });
-                                }
                                 break;
                             default:
                                 result.notImplemented();
