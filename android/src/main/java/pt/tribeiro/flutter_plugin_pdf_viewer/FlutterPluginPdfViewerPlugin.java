@@ -80,18 +80,18 @@ public class FlutterPluginPdfViewerPlugin implements FlutterPlugin, MethodCallHa
                                 });
                                 break;
                             case "getPage":
-                                Integer pageNumber = call.<Integer>argument("pageNumber");
+                               Integer pageNumber = call.<Integer>argument("pageNumber");
                                 final String pageResult = getPage((String) call.argument("filePath"), pageNumber);
                                 if (pageResult == null) {
                                     Log.d(TAG, "Retrieving page failed.");
                                     result.notImplemented();
-                                }else {
-                                    mainThreadHandler.post(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            result.success(pageResult);
-                                        }
-                                    });
+                                }
+                                mainThreadHandler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        result.success(pageResult);
+                                    }
+                                });
                                 }
                                 break;
                             default:
